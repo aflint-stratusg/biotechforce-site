@@ -28,12 +28,18 @@
 <meta name="twitter:description" content="Quick-start Salesforce solutions purpose-built for biotech. 20+ years of experience, hundreds of implementations.">
 <meta name="twitter:image" content="./assets/banner.jpg">
 
-<!-- reCAPTCHA v3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LfSkYksAAAAAIhrBCK8gsd4juCoTs9MraLF4TSc"></script>
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
-  function onSubmit(token) {
-    document.getElementById('contact-form').submit();
+  function timestamp() {
+    var response = document.getElementById("g-recaptcha-response");
+    if (response == null || response.value.trim() == "") {
+      var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+      elems["ts"] = JSON.stringify(new Date().getTime());
+      document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+    }
   }
+  setInterval(timestamp, 500);
 </script>
 
 <!-- Fonts -->
@@ -472,6 +478,7 @@
 
         <form id="contact-form" class="contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DA0000000IVj2" method="POST" aria-label="Contact form">
           <!-- Salesforce Web-to-Lead hidden fields -->
+          <input type="hidden" name="captcha_settings" value='{"keyname":"BTF_V2","fallback":"true","orgId":"00DA0000000IVj2","ts":""}'>
           <input type="hidden" name="oid" value="00DA0000000IVj2">
           <input type="hidden" name="lead_source" value="Web Form - BioTechForce">
           <input type="hidden" name="retURL" value="https://www.biotechforce.com/thank-you.html">
@@ -502,10 +509,10 @@
             <label for="description" class="contact-form__label">Message</label>
             <textarea id="description" name="description" class="contact-form__textarea" placeholder="Tell us about your project or ask a question..."></textarea>
           </div>
-          <button class="g-recaptcha btn btn--primary" style="width: 100%; justify-content: center;"
-            data-sitekey="6LfSkYksAAAAAIhrBCK8gsd4juCoTs9MraLF4TSc"
-            data-callback="onSubmit"
-            data-action="submit">
+          <div class="contact-form__group">
+            <div class="g-recaptcha" data-sitekey="6LcYlYksAAAAAMIoFxrydeXgZ7WVzYSuaso3LDqA"></div>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
             Send Message
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </button>
