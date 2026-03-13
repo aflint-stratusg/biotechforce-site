@@ -29,6 +29,16 @@
 <meta name="twitter:image" content="./assets/banner.jpg">
 
 <!-- reCAPTCHA v3 -->
+<script>
+  // Define grecaptcha.ready queue before API loads (per Google docs)
+  if (typeof grecaptcha === 'undefined') {
+    var grecaptcha = { ready: function(cb) { 
+      var c = '___grecaptcha_cfg';
+      window[c] = window[c] || {};
+      (window[c]['fns'] = window[c]['fns'] || []).push(cb);
+    }};
+  }
+</script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI"></script>
 
 <!-- Fonts -->
