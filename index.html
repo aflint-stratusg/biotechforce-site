@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary SEO -->
 <title>BioTechForce — Simplified Cloud Solutions for Biotech | Salesforce for Life Sciences</title>
-<meta name="description" content="BioTechForce by StratusG delivers quick-start Salesforce solutions for biotech companies. 15+ years, hundreds of implementations. Sales, Medical Affairs, Distribution Management, and System Integrations.">
+<meta name="description" content="BioTechForce by StratusG delivers quick-start Salesforce solutions for biotech companies. 20+ years, hundreds of implementations. Sales, Medical Affairs, Distribution Management, and System Integrations.">
 <meta name="keywords" content="biotech CRM, Salesforce biotech, life sciences cloud, commercial biotech solutions, MSL management, GPO management, biotech sales automation, StratusG consulting">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.biotechforce.com/">
@@ -15,7 +14,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="BioTechForce — Simplified Cloud Solutions for Biotech">
-<meta property="og:description" content="Quick-start Salesforce solutions purpose-built for biotech. 15+ years of experience, hundreds of implementations. Sales, Medical Affairs, Distribution, and Integrations.">
+<meta property="og:description" content="Quick-start Salesforce solutions purpose-built for biotech. 20+ years of experience, hundreds of implementations. Sales, Medical Affairs, Distribution, and Integrations.">
 <meta property="og:url" content="https://www.biotechforce.com/">
 <meta property="og:site_name" content="BioTechForce">
 <meta property="og:locale" content="en_US">
@@ -26,8 +25,11 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BioTechForce — Simplified Cloud Solutions for Biotech">
-<meta name="twitter:description" content="Quick-start Salesforce solutions purpose-built for biotech. 15+ years of experience, hundreds of implementations.">
+<meta name="twitter:description" content="Quick-start Salesforce solutions purpose-built for biotech. 20+ years of experience, hundreds of implementations.">
 <meta name="twitter:image" content="./assets/banner.jpg">
+
+<!-- reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI"></script>
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
@@ -49,11 +51,6 @@
   "operatingSystem": "Web",
   "description": "Quick-start Salesforce cloud solution for biotech companies, including Sales Process, Medical Affairs, Distribution Management, and System Integrations.",
   "url": "https://www.biotechforce.com",
-  "creator": {
-    "@type": "Organization",
-    "name": "StratusG Consulting",
-    "url": "https://www.stratusg.com"
-  },
   "provider": {
     "@type": "Organization",
     "name": "StratusG Consulting",
@@ -95,7 +92,7 @@
     "email": "Info@StratusG.com"
   },
   "sameAs": [],
-  "description": "BioTechForce is a quick-start out of the box Salesforce solution to support a biotech company's commercial journey. Over 15 years of experience in the regulated biotech industry."
+  "description": "BioTechForce is a quick-start out of the box Salesforce solution to support a biotech company's commercial journey. Over 20 years of experience in the regulated biotech industry."
 }
 </script>
 </head>
@@ -144,7 +141,7 @@
         <div class="hero__content">
           <span class="hero__badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            15+ Years in Regulated Biotech
+            20+ Years in Regulated Biotech
           </span>
           <h1 id="hero-title" class="hero__title">
             Commercial <span>Cloud Solutions</span> for Biotech
@@ -339,8 +336,8 @@
     <section class="section" aria-labelledby="other-title">
       <div class="section__header fade-in">
         <p class="section__label">Beyond CRM</p>
-        <h2 id="other-title" class="section__title">Two Decades of Industry IT Solutions</h2>
-        <p class="section__desc">Beyond Salesforce, we bring over 20 years of experience implementing industry-specific IT solutions for the life sciences sector.</p>
+        <h2 id="other-title" class="section__title">Three Decades of Industry IT Solutions</h2>
+        <p class="section__desc">Beyond Salesforce, we bring over 30 years of experience implementing industry-specific IT solutions for the life sciences sector.</p>
       </div>
 
       <div class="other-solutions-list fade-in">
@@ -391,7 +388,7 @@
         <div class="process-step">
           <div class="process-step__number" aria-hidden="true"></div>
           <h3 class="process-step__title">Assess</h3>
-          <p class="process-step__desc">We evaluate your current commercial processes and map them to biotech best practices refined over 15+ years.</p>
+          <p class="process-step__desc">We evaluate your current commercial processes and map them to biotech best practices refined over 20+ years.</p>
         </div>
         <div class="process-step">
           <div class="process-step__number" aria-hidden="true"></div>
@@ -500,6 +497,7 @@
             <label for="description" class="contact-form__label">Message</label>
             <textarea id="description" name="description" class="contact-form__textarea" placeholder="Tell us about your project or ask a question..."></textarea>
           </div>
+          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
           <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
             Send Message
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
@@ -545,7 +543,8 @@
       </div>
       <div class="footer__bottom">
         <p class="footer__copyright">&copy; 2026 BioTechForce by StratusG Consulting. All rights reserved.</p>
-     </div>
+
+      </div>
     </div>
   </footer>
 
@@ -596,6 +595,22 @@
         }
       });
     });
+
+    // reCAPTCHA v3 — generate token on form submit
+    (function(){
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI', { action: 'submit' }).then(function(token) {
+              document.getElementById('g-recaptcha-response').value = token;
+              form.submit();
+            });
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
