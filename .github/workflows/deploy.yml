@@ -1,4 +1,4 @@
-name: Deploy to Network Solutions
+name: Deploy to Site Ground
 
 on:
   push:
