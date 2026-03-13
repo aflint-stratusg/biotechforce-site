@@ -606,35 +606,28 @@
       });
     });
 
-    // reCAPTCHA v3 — generate token on form submit
+    // reCAPTCHA v3 — generate token when user interacts with form
     (function(){
-      const form = document.querySelector('.contact-form');
-      if (!form) return;
+      var tokenField = document.getElementById('g-recaptcha-response');
+      var form = document.querySelector('.contact-form');
+      if (!form || !tokenField) return;
 
-      form.addEventListener('submit', function(e) {
-        // If token already set, allow native submit
-        if (document.getElementById('g-recaptcha-response').value) return;
-
-        e.preventDefault();
-
-        // Timeout fallback — submit anyway if reCAPTCHA takes too long
-        var fallback = setTimeout(function() { form.submit(); }, 3000);
-
+      function refreshToken() {
         try {
           grecaptcha.ready(function() {
             grecaptcha.execute('6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI', { action: 'submit' }).then(function(token) {
-              clearTimeout(fallback);
-              document.getElementById('g-recaptcha-response').value = token;
-              form.submit();
-            }).catch(function() {
-              clearTimeout(fallback);
-              form.submit();
-            });
+              tokenField.value = token;
+            }).catch(function() {});
           });
-        } catch(err) {
-          clearTimeout(fallback);
-          form.submit();
-        }
+        } catch(e) {}
+      }
+
+      // Generate token as soon as reCAPTCHA loads
+      refreshToken();
+
+      // Refresh token when user focuses on the form (tokens expire after 2 min)
+      form.addEventListener('focusin', function() {
+        refreshToken();
       });
     })();
   </script>
