@@ -28,18 +28,13 @@
 <meta name="twitter:description" content="Quick-start Salesforce solutions purpose-built for biotech. 20+ years of experience, hundreds of implementations.">
 <meta name="twitter:image" content="./assets/banner.jpg">
 
-<!-- reCAPTCHA v3 -->
+<!-- reCAPTCHA Enterprise -->
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfGjIksAAAAAFd-IfuSqbmS2WDGLfB0_7n0HB--"></script>
 <script>
-  // Define grecaptcha.ready queue before API loads (per Google docs)
-  if (typeof grecaptcha === 'undefined') {
-    var grecaptcha = { ready: function(cb) { 
-      var c = '___grecaptcha_cfg';
-      window[c] = window[c] || {};
-      (window[c]['fns'] = window[c]['fns'] || []).push(cb);
-    }};
+  function onSubmit(token) {
+    document.getElementById('contact-form').submit();
   }
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI"></script>
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
@@ -475,7 +470,7 @@
           </div>
         </div>
 
-        <form class="contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DA0000000IVj2" method="POST" aria-label="Contact form">
+        <form id="contact-form" class="contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DA0000000IVj2" method="POST" aria-label="Contact form">
           <!-- Salesforce Web-to-Lead hidden fields -->
           <input type="hidden" name="oid" value="00DA0000000IVj2">
           <input type="hidden" name="lead_source" value="Web Form - BioTechForce">
@@ -507,8 +502,10 @@
             <label for="description" class="contact-form__label">Message</label>
             <textarea id="description" name="description" class="contact-form__textarea" placeholder="Tell us about your project or ask a question..."></textarea>
           </div>
-          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
+          <button class="g-recaptcha btn btn--primary" style="width: 100%; justify-content: center;"
+            data-sitekey="6LfGjIksAAAAAFd-IfuSqbmS2WDGLfB0_7n0HB--"
+            data-callback="onSubmit"
+            data-action="submit">
             Send Message
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           </button>
@@ -606,30 +603,6 @@
       });
     });
 
-    // reCAPTCHA v3 — generate token when user interacts with form
-    (function(){
-      var tokenField = document.getElementById('g-recaptcha-response');
-      var form = document.querySelector('.contact-form');
-      if (!form || !tokenField) return;
-
-      function refreshToken() {
-        try {
-          grecaptcha.ready(function() {
-            grecaptcha.execute('6LfP20IUAAAAAMAG5pgz_5hC5D01ovpOJMUhM_eI', { action: 'submit' }).then(function(token) {
-              tokenField.value = token;
-            }).catch(function() {});
-          });
-        } catch(e) {}
-      }
-
-      // Generate token as soon as reCAPTCHA loads
-      refreshToken();
-
-      // Refresh token when user focuses on the form (tokens expire after 2 min)
-      form.addEventListener('focusin', function() {
-        refreshToken();
-      });
-    })();
   </script>
 </body>
 </html>
