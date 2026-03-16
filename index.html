@@ -444,7 +444,7 @@
             </div>
             <div>
               <p class="contact-info__label">Phone</p>
-              <p class="contact-info__value"><a href="tel:+18558782600" target="_blank" rel="noopener noreferrer">855.878.2600</a></p>
+              <p class="contact-info__value"><a data-ph class="js-phone" target="_blank" rel="noopener noreferrer"></a></p>
             </div>
           </div>
           <div class="contact-info__item">
@@ -549,7 +549,7 @@
         <div>
           <h3 class="footer__col-title">Contact</h3>
           <ul class="footer__links" role="list">
-            <li><a href="tel:+18558782600">855.878.2600</a></li>
+            <li><a data-ph class="js-phone"></a></li>
             <li><a href="mailto:Info@StratusG.com">Info@StratusG.com</a></li>
             <li>Seattle, WA</li>
           </ul>
@@ -609,6 +609,16 @@
         }
       });
     });
+
+    // Obfuscated phone — assembled at runtime to prevent bot scraping
+    (function(){
+      var p = ['8','5','5','.','8','7','8','.','2','6','0','0'];
+      var t = ['+','1','8','5','5','8','7','8','2','6','0','0'];
+      document.querySelectorAll('.js-phone').forEach(function(el) {
+        el.href = 'tel:' + t.join('');
+        el.textContent = p.join('');
+      });
+    })();
 
   </script>
 </body>
