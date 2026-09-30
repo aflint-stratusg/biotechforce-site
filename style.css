@@ -736,6 +736,41 @@ a:hover {
   }
 }
 
+/* ===== FEATURE ILLUSTRATIONS ===== */
+.feature-highlight__visual--illustration {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-surface-offset));
+}
+.feature-highlight__visual--illustration svg.illus {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  color: var(--color-primary);
+}
+.illus-card { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1.5; }
+.illus-avatar { fill: var(--color-primary-light); }
+.illus-avatar-head { fill: var(--color-primary); }
+.illus-avatar-body { fill: var(--color-primary); }
+.illus-line-strong { fill: var(--color-text); opacity: 0.7; }
+.illus-line { fill: var(--color-text-faint); opacity: 0.6; }
+.illus-pill { fill: var(--color-accent); }
+.illus-pill-text { fill: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.illus-chev { fill: var(--color-surface-offset); stroke: var(--color-border); stroke-width: 1; }
+.illus-chev--done { fill: var(--color-primary-light); stroke: var(--color-primary); }
+.illus-chev--current { fill: var(--color-primary); stroke: var(--color-primary); }
+.illus-label { fill: var(--color-text-muted); font-family: var(--font-display); font-size: 13px; font-weight: 500; }
+.illus-track { fill: var(--color-surface-offset); }
+.illus-fill { fill: var(--color-primary); }
+.illus-fill--accent { fill: var(--color-accent); }
+.illus-grid line { stroke: var(--color-divider); stroke-width: 1; stroke-dasharray: 4 4; }
+.illus-grad-top { stop-color: var(--color-accent); stop-opacity: 0.28; }
+.illus-grad-bottom { stop-color: var(--color-accent); stop-opacity: 0; }
+.illus-curve { fill: none; stroke: var(--color-accent); stroke-width: 3.5; stroke-linecap: round; }
+.illus-dot { fill: var(--color-surface); stroke: var(--color-accent); stroke-width: 2.5; }
+.illus-star { fill: #f5b301; stroke: #d99a00; stroke-width: 1; }
+.illus-chip { fill: var(--color-accent-light); stroke: var(--color-accent); stroke-width: 1; }
+.illus-chip-text { fill: var(--color-accent); font-family: var(--font-display); font-size: 11px; font-weight: 600; }
+
 /* ===== INTEGRATION LOGOS ===== */
 .integrations-grid {
   max-width: var(--content-default);
